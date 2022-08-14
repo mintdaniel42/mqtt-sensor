@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  sensor1:
+    image: mintdaniel42/mqtt-sensor
+    build:
+      context: ./build
+    restart: always
+    volumes:
+      - ./mqtt-sensor1-module:/module
+    devices: []
+    environment:
+      - MQTT_HOST=cloud.fritz.box
+      - MQTT_PORT=1883
+      - MQTT_USER=usr
+      - MQTT_USER=pwd
+      - MQTT_TOPIC=topic
+      - INTERVAL=60
